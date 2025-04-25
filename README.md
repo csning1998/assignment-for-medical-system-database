@@ -14,25 +14,27 @@ Given the provided attachment file (data tables) on TronClass, draw the relation
   - When a single field cannot uniquely identify a record.
   - When business logic requires multiple fields to serve together as identification criteria.
   - When there's a need to support many-to-many relationships or junction tables (like association tables).
-- **Entities Using Composite Primary Keys** (9 entities):
-    - Sections (`HDEPT_CODE`, `SectCode`)
-    - ICDDiagnoses (`ICDH_CODEn`, `Version`)
-    - ICDProcedures (`ProcedureCode`, `Version`)
-    - REGCALM (`CAL_YEAR`, `CAL_MONTH`)
-    - REGSCHW (`WEEK`, `NOON`, `HDEPT_CODE`, `SECT_CODE`)
-    - REGSCHD (`REG_DATE`, `NOON`, `HDEPT_CODE`, `SECT_CODE`)
-    - RegistrationDiagnoses (`RegistrationID`, `DiagnosisSequence`, `ICDH_CODEn`, `Version`)
-    - RegistrationProcedures (`RegistrationID`, `ProcedureSequence`, `ProcedureCode`, `Version`)
-    - RegistrationCharges (`RegistrationID`, `ChargeCode`)
-- **Entities Using Single Primary Keys** (8 entities):
-    - Departments (`HDEPT_CODE`)
-    - Users (`UserID`)
-    - Patients (`ChartNo`)
-    - ChargeItems (`ChargeCode`)
-    - PayKinds (`PayKindCode`)
-    - HospitalsClinics (`ClinicCode`)
-    - SpecialContracts (`SpeID`)
-    - Registrations (`RegistrationID`, with additional composite unique key)
+- I apply PascalCase to the newly introduced tables while keeping the original tables (REGCALM, REGSCHW, REGSCHD) in SCREAMING_SNAKE_CASE.
+  - **Entities Using Composite Primary Keys** (9 entities):
+      - Sections (`HDEPT_CODE`, `SectCode`)
+      - ICDDiagnoses (`ICDH_CODEn`, `Version`)
+      - ICDProcedures (`ProcedureCode`, `Version`)
+      - REGCALM (`CAL_YEAR`, `CAL_MONTH`)
+      - REGSCHW (`WEEK`, `NOON`, `HDEPT_CODE`, `SECT_CODE`)
+      - REGSCHD (`REG_DATE`, `NOON`, `HDEPT_CODE`, `SECT_CODE`)
+      - RegistrationDiagnoses (`RegistrationID`, `DiagnosisSequence`, `ICDH_CODEn`, `Version`)
+      - RegistrationProcedures (`RegistrationID`, `ProcedureSequence`, `ProcedureCode`, `Version`)
+      - RegistrationCharges (`RegistrationID`, `ChargeCode`)
+  - **Entities Using Single Primary Keys** (8 entities):
+      - Departments (`HDEPT_CODE`)
+      - Users (`UserID`)
+      - Patients (`ChartNo`)
+      - ChargeItems (`ChargeCode`)
+      - PayKinds (`PayKindCode`)
+      - HospitalsClinics (`ClinicCode`)
+      - SpecialContracts (`SpeID`)
+      - Registrations (`RegistrationID`, with additional composite unique key)
+- To view a larger Mermaid rendering, reviewer can copy and paste the code to https://mermaid.live/edit . 
 
 ```mermaid
 erDiagram
